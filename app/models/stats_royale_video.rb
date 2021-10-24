@@ -9,4 +9,8 @@ class StatsRoyaleVideo < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :thumbnail_url, presence: true
+
+  def url
+    "https://www.youtube.com/watch?v=#{youtube_video_id}"
+  end
 end

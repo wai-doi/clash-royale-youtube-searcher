@@ -1,0 +1,2 @@
+module StatsRoyaleVideosHelper
+end

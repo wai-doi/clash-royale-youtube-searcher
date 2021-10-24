@@ -1,0 +1,20 @@
+<h1>StatsRoyaleVideos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="1">投稿日時</th>
+      <th colspan="1">URL</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td><%= video.published_at %></td>
+        <td><%= video.url %></td>
+        <td><%= link_to 'Show', video %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
