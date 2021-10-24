@@ -1,4 +1,6 @@
 class StatsRoyaleVideo < ApplicationRecord
+  CHANNEL_ID = "UC698QxCg2KVVWh4G6NQLX_w"
+
   has_many :matches
   has_many :decks, through: :matches
 
