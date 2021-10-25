@@ -31,7 +31,7 @@ task import_new_videos: :environment do
         published_at: snippet.published_at,
         title: snippet.title,
         description: snippet.description,
-        thumbnail_url: snippet.thumbnails.default.url,
+        thumbnail_url: snippet.thumbnails.medium.url,
         deck_1_cards: deck[0],
         deck_2_cards: deck[1],
       }
