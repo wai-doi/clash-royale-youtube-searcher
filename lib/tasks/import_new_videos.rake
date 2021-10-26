@@ -1,5 +1,5 @@
 desc '新しい動画をDBに保存する'
-task import_new_videos: :environment do
+task import_new_videos: [:environment, :destroy_old_videos] do
   require 'dotenv'
   require 'google/apis/youtube_v3'
   Dotenv.load

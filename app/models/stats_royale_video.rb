@@ -3,7 +3,7 @@ class StatsRoyaleVideo < ApplicationRecord
   EMBED_VIDEO_WIDTH = 1120
   EMBED_VIDEO_HEIGHT = 630
 
-  has_many :matches
+  has_many :matches, dependent: :destroy
   has_many :decks, through: :matches
 
   validates :youtube_video_id, presence: true, uniqueness: true
