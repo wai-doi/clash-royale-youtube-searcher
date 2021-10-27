@@ -40,11 +40,12 @@ task import_new_videos: [:environment, :destroy_old_videos] do
   persisted_youtube_video_ids = StatsRoyaleVideo.pluck(:youtube_video_id)
   parsed_videos.reject! { |parsed_video| persisted_youtube_video_ids.include?(parsed_video[:video_id]) }
 
-  puts "Cardの保存を開始"
+  puts "Card の保存を開始"
   save_new_cards(parsed_videos)
-  puts "Cardの保存を終了"
+  puts "Card の保存を終了"
 
-  puts "Videoの保存を開始"
+  puts "StatsRoyaleVideo の保存を開始"
+  created_videos = []
   parsed_videos.each do |parsed_video|
     ActiveRecord::Base.transaction do
       # deck作成
@@ -52,7 +53,7 @@ task import_new_videos: [:environment, :destroy_old_videos] do
       deck_2 = save_new_deck(parsed_video[:deck_2_cards])
 
       # video作成
-      StatsRoyaleVideo.create!(
+      created_videos << StatsRoyaleVideo.create!(
         youtube_video_id: parsed_video[:video_id],
         published_at: parsed_video[:published_at],
         title: parsed_video[:title],
@@ -62,7 +63,7 @@ task import_new_videos: [:environment, :destroy_old_videos] do
       )
     end
   end
-  puts "Videoの保存を終了"
+  puts "#{created_videos.size}件の StatsRoyaleVideo の保存を終了"
 end
 
 def save_new_cards(parsed_videos)
