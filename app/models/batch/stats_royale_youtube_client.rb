@@ -6,7 +6,7 @@ module Batch
     CHANNEL_ID = 'UC698QxCg2KVVWh4G6NQLX_w'
     REQUEST_COUNT_LIMIT = 100
     PLAYLIST_ITEM_COUNT_PER_REQUEST = 50 # 最大50まで設定できる
-    VIDEO_REQUEST_TERM = 1.month
+    VIDEO_REQUEST_TERM = 1.week
 
     def initialize
       @youtube_service = Google::Apis::YoutubeV3::YouTubeService.new
