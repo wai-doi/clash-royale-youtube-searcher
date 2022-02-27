@@ -22,7 +22,7 @@ module Batch
         response = @youtube_service.list_playlist_items('snippet', playlist_id: uploads_playlist_id, max_results: PLAYLIST_ITEM_COUNT_PER_REQUEST, page_token: next_page_token)
         uploaded_video_items += response.items
 
-        Rails.logger.info("#{uploaded_video_items.size} 件取得")
+        puts "#{uploaded_video_items.size} 件取得"
 
         next_page_token = response.next_page_token
         break if next_page_token.nil? || response.items.any? { |item| Time.zone.parse(item.snippet.published_at) < VIDEO_REQUEST_TERM.ago }
