@@ -6,10 +6,6 @@ module Batch
       @item = video_item
     end
 
-    def snippet
-      @item.snippet
-    end
-
     def video_id
       snippet.resource_id.video_id
     end
@@ -23,11 +19,11 @@ module Batch
     end
 
     def description
-      snippet.thumbnails.medium.url
+      snippet.description
     end
 
     def thumbnail_url
-      snippet.thumbnails
+      snippet.thumbnails.medium.url
     end
 
     def deck_1_cards
@@ -39,6 +35,10 @@ module Batch
     end
 
     private
+
+    def snippet
+      @item.snippet
+    end
 
     def deck
       snippet.description.scan(/deck:\n(.+)\n/).flatten.map { |row_cards| row_cards.split(', ') }
