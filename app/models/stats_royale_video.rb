@@ -1,5 +1,4 @@
 class StatsRoyaleVideo < ApplicationRecord
-  CHANNEL_ID = "UC698QxCg2KVVWh4G6NQLX_w"
   EMBED_VIDEO_WIDTH = 1120
   EMBED_VIDEO_HEIGHT = 630
 
