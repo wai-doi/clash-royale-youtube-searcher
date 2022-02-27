@@ -2,6 +2,11 @@ require 'rails_helper'
 require 'google/apis/youtube_v3'
 
 RSpec.describe Batch::VideoImporter, type: :model do
+  before do
+    # テストでは標準出力させない
+    suppress_puts
+  end
+
   describe "#execute" do
     subject { described_class.new.execute }
 
