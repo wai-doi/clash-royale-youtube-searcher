@@ -6,7 +6,7 @@ module Batch
     CHANNEL_ID = 'UC698QxCg2KVVWh4G6NQLX_w'
     REQUEST_COUNT_LIMIT = 100
     PLAYLIST_ITEM_COUNT_PER_REQUEST = 50 # 最大50まで設定できる
-    VIDEO_REQUEST_TERM = 1.week
+    REMAINING_PERIOD_FOR_VIDEO = Rails.configuration.x.remaining_period_for_video
 
     def initialize
       @youtube_service = Google::Apis::YoutubeV3::YouTubeService.new
@@ -25,7 +25,7 @@ module Batch
         puts "#{uploaded_video_items.size} 件取得"
 
         next_page_token = response.next_page_token
-        break if next_page_token.nil? || response.items.any? { |item| Time.zone.parse(item.snippet.published_at) < VIDEO_REQUEST_TERM.ago }
+        break if next_page_token.nil? || response.items.any? { |item| Time.zone.parse(item.snippet.published_at) < REMAINING_PERIOD_FOR_VIDEO.ago }
 
         sleep 0.1
       end

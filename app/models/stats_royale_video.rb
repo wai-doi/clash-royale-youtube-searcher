@@ -1,6 +1,7 @@
 class StatsRoyaleVideo < ApplicationRecord
   EMBED_VIDEO_WIDTH = 1120
   EMBED_VIDEO_HEIGHT = 630
+  REMAINING_PERIOD = Rails.configuration.x.remaining_period_for_video
 
   has_many :matches, dependent: :destroy
   has_many :decks, through: :matches
@@ -10,6 +11,8 @@ class StatsRoyaleVideo < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :thumbnail_url, presence: true
+
+  scope :old, -> { where(published_at: ..REMAINING_PERIOD.ago) }
 
   def url
     "https://www.youtube.com/watch?v=#{youtube_video_id}"

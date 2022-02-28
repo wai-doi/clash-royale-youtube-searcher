@@ -35,5 +35,7 @@ module ClashRoyaleYoutubeSearcher
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.time_zone = 'Tokyo'
+
+    config.x.remaining_period_for_video = 1.week
   end
 end
