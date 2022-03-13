@@ -26,11 +26,11 @@ module Batch
       snippet.thumbnails.medium.url
     end
 
-    def deck_1_cards
+    def deck1_cards
       deck[0]
     end
 
-    def deck_2_cards
+    def deck2_cards
       deck[1]
     end
 

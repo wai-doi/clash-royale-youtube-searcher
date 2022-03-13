@@ -105,16 +105,16 @@ RSpec.describe Batch::VideoItem, type: :model do
     end
   end
 
-  describe '#deck_1_cards' do
-    subject { video_item.deck_1_cards }
+  describe '#deck1_cards' do
+    subject { video_item.deck1_cards }
 
     it 'プレイヤー1のカード名の配列を返すこと' do
       expect(subject).to eq ['Bandit', 'Miner', 'Mega Knight', 'Wall Breakers', 'Bats', 'Musketeer', 'Guards', 'Zap']
     end
   end
 
-  describe '#deck_2_cards' do
-    subject { video_item.deck_2_cards }
+  describe '#deck2_cards' do
+    subject { video_item.deck2_cards }
 
     it 'プレイヤー2のカード名の配列を返すこと' do
       expect(subject).to eq ['Rascals', 'Dart Goblin', 'Bats', 'Fireball', 'Miner', 'The Log', 'Guards', 'Mortar']
