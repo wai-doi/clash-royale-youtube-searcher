@@ -7,7 +7,7 @@ RSpec.describe Batch::VideoImporter, type: :model do
     suppress_puts
   end
 
-  describe "#execute" do
+  describe '#execute' do
     subject { described_class.new.execute }
 
     let(:item) do
@@ -59,8 +59,8 @@ RSpec.describe Batch::VideoImporter, type: :model do
       allow(youtube_client).to receive(:uploaded_video_items).and_return([item])
     end
 
-    context "Cardが保存されてない場合" do
-      it "新規のCardが保存されること" do
+    context 'Cardが保存されてない場合' do
+      it '新規のCardが保存されること' do
         expect { subject }.to change { Card.count }.from(0).to(13)
 
         created_card_names = Card.pluck(:name)
@@ -84,7 +84,7 @@ RSpec.describe Batch::VideoImporter, type: :model do
       end
     end
 
-    context "Cardが既に保存されている場合" do
+    context 'Cardが既に保存されている場合' do
       before do
         create(:card, name: 'Bandit')
         create(:card, name: 'Miner')
@@ -131,11 +131,11 @@ RSpec.describe Batch::VideoImporter, type: :model do
       end
     end
 
-    it "StatsRoyaleVideoが保存されること" do
+    it 'StatsRoyaleVideoが保存されること' do
       expect { subject }.to change { StatsRoyaleVideo.count }.from(0).to(1)
     end
 
-    it "StatsRoyaleVideoにはDeckが2つ関連付けられていること" do
+    it 'StatsRoyaleVideoにはDeckが2つ関連付けられていること' do
       subject
 
       video = StatsRoyaleVideo.first

@@ -11,11 +11,11 @@ module Batch
       persisted_youtube_video_ids = StatsRoyaleVideo.pluck(:youtube_video_id)
       uploaded_video_items.reject! { |video_item| persisted_youtube_video_ids.include?(video_item.video_id) }
 
-      puts "Card の保存を開始"
+      puts 'Card の保存を開始'
       save_new_cards(uploaded_video_items)
-      puts "Card の保存を終了"
+      puts 'Card の保存を終了'
 
-      puts "StatsRoyaleVideo の保存を開始"
+      puts 'StatsRoyaleVideo の保存を開始'
       created_videos = []
       uploaded_video_items.each do |video_item|
         ActiveRecord::Base.transaction do
