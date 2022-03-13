@@ -5,7 +5,7 @@ RSpec.describe StatsRoyaleVideo, type: :model do
     subject { described_class.old }
 
     let!(:older_video) { create(:stats_royale_video, published_at: 1.week.ago) }
-    let!(:newer_video) { create(:stats_royale_video, published_at: Time.current.ago(1.weeks - 1.minutes)) }
+    let!(:newer_video) { create(:stats_royale_video, published_at: Time.current.ago(1.week - 1.minute)) }
 
     it "一週間前のレコードが含まれること" do
       expect(subject).to include older_video
