@@ -2,24 +2,16 @@ module Batch
   class VideoItem
     attr_reader :item
 
+    delegate :published_at, to: :snippet
+    delegate :title, to: :snippet
+    delegate :description, to: :snippet
+
     def initialize(video_item)
       @item = video_item
     end
 
     def video_id
       snippet.resource_id.video_id
-    end
-
-    def published_at
-      snippet.published_at
-    end
-
-    def title
-      snippet.title
-    end
-
-    def description
-      snippet.description
     end
 
     def thumbnail_url
