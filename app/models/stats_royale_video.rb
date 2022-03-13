@@ -32,6 +32,6 @@ class StatsRoyaleVideo < ApplicationRecord
   end
 
   def formated_published_at
-    published_at.strftime("%F %H:%M")
+    published_at.strftime('%F %H:%M')
   end
 end
