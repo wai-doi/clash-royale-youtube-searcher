@@ -10,7 +10,26 @@ RSpec.describe Batch::VideoItem, type: :model do
         ),
         published_at: '2022-01-01T00:00:00Z',
         title: '動画のタイトル',
-        description: "Match details:\nhttps://statsroyale.com/watch/top200/1645858750_%238J02R29U0_%23GY2UJYP\n\n\nEsssBeee\nhttps://statsroyale.com/profile/GY2UJYP\n\ndeck:\nBandit, Miner, Mega Knight, Wall Breakers, Bats, Musketeer, Guards, Zap\nhttps://link.clashroyale.com/deck/en?deck=26000046;26000032;26000055;26000058;26000049;26000014;26000025;28000008\n\n\nトレモロ\nhttps://statsroyale.com/profile/8J02R29U0\n\ndeck:\nRascals, Dart Goblin, Bats, Fireball, Miner, The Log, Guards, Mortar\nhttps://link.clashroyale.com/deck/en?deck=26000053;26000040;26000049;28000000;26000032;28000011;26000025;27000002",
+        description: <<~DESCRIPTION,
+          Match details:
+          https://statsroyale.com/watch/top200/1645858750_%238J02R29U0_%23GY2UJYP
+
+
+          EsssBeee
+          https://statsroyale.com/profile/GY2UJYP
+
+          deck:
+          Bandit, Miner, Mega Knight, Wall Breakers, Bats, Musketeer, Guards, Zap
+          https://link.clashroyale.com/deck/en?deck=26000046;26000032;26000055;26000058;26000049;26000014;26000025;28000008
+
+
+          トレモロ
+          https://statsroyale.com/profile/8J02R29U0
+
+          deck:
+          Rascals, Dart Goblin, Bats, Fireball, Miner, The Log, Guards, Mortar
+          https://link.clashroyale.com/deck/en?deck=26000053;26000040;26000049;28000000;26000032;28000011;26000025;27000002
+        DESCRIPTION
         thumbnails: double('Google::Apis::YoutubeV3::ThumbnailDetails',
           medium: double('Google::Apis::YoutubeV3::Thumbnail',
             url: 'https://example.com'
@@ -50,7 +69,26 @@ RSpec.describe Batch::VideoItem, type: :model do
     subject { video_item.description }
 
     it 'descriptionを返すこと' do
-      expect(subject).to eq "Match details:\nhttps://statsroyale.com/watch/top200/1645858750_%238J02R29U0_%23GY2UJYP\n\n\nEsssBeee\nhttps://statsroyale.com/profile/GY2UJYP\n\ndeck:\nBandit, Miner, Mega Knight, Wall Breakers, Bats, Musketeer, Guards, Zap\nhttps://link.clashroyale.com/deck/en?deck=26000046;26000032;26000055;26000058;26000049;26000014;26000025;28000008\n\n\nトレモロ\nhttps://statsroyale.com/profile/8J02R29U0\n\ndeck:\nRascals, Dart Goblin, Bats, Fireball, Miner, The Log, Guards, Mortar\nhttps://link.clashroyale.com/deck/en?deck=26000053;26000040;26000049;28000000;26000032;28000011;26000025;27000002"
+      expect(subject).to eq <<~DESCRIPTION
+        Match details:
+        https://statsroyale.com/watch/top200/1645858750_%238J02R29U0_%23GY2UJYP
+
+
+        EsssBeee
+        https://statsroyale.com/profile/GY2UJYP
+
+        deck:
+        Bandit, Miner, Mega Knight, Wall Breakers, Bats, Musketeer, Guards, Zap
+        https://link.clashroyale.com/deck/en?deck=26000046;26000032;26000055;26000058;26000049;26000014;26000025;28000008
+
+
+        トレモロ
+        https://statsroyale.com/profile/8J02R29U0
+
+        deck:
+        Rascals, Dart Goblin, Bats, Fireball, Miner, The Log, Guards, Mortar
+        https://link.clashroyale.com/deck/en?deck=26000053;26000040;26000049;28000000;26000032;28000011;26000025;27000002
+      DESCRIPTION
     end
   end
 
