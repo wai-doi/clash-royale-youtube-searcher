@@ -3,7 +3,7 @@ require 'google/apis/youtube_v3'
 module Batch
   class StatsRoyaleYoutubeClient
     YOUTUBE_API_KEY = ENV['YOUTUBE_API_KEY']
-    CHANNEL_ID = 'UC698QxCg2KVVWh4G6NQLX_w'
+    CHANNEL_ID = 'UC698QxCg2KVVWh4G6NQLX_w'.freeze
     REQUEST_COUNT_LIMIT = 100
     PLAYLIST_ITEM_COUNT_PER_REQUEST = 50 # 最大50まで設定できる
     REMAINING_PERIOD_FOR_VIDEO = Rails.configuration.x.remaining_period_for_video
