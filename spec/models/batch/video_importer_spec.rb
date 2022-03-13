@@ -12,9 +12,12 @@ RSpec.describe Batch::VideoImporter, type: :model do
 
     let(:item) do
       # YoutubeAPIレスポンスのオブジェクトのmock
-      double('Google::Apis::YoutubeV3::PlaylistItem',
-        snippet: double('Google::Apis::YoutubeV3::PlaylistItemSnippet',
-          resource_id: double('Google::Apis::YoutubeV3::ResourceId',
+      double(
+        'Google::Apis::YoutubeV3::PlaylistItem',
+        snippet: double(
+          'Google::Apis::YoutubeV3::PlaylistItemSnippet',
+          resource_id: double(
+            'Google::Apis::YoutubeV3::ResourceId',
             video_id: '11111111'
           ),
           published_at: '2022-01-01T00:00:00Z',
@@ -39,8 +42,10 @@ RSpec.describe Batch::VideoImporter, type: :model do
             Rascals, Dart Goblin, Bats, Fireball, Miner, The Log, Guards, Mortar
             https://link.clashroyale.com/deck/en?deck=26000053;26000040;26000049;28000000;26000032;28000011;26000025;27000002
           DESCRIPTION
-          thumbnails: double('Google::Apis::YoutubeV3::ThumbnailDetails',
-            medium: double('Google::Apis::YoutubeV3::Thumbnail',
+          thumbnails: double(
+            'Google::Apis::YoutubeV3::ThumbnailDetails',
+            medium: double(
+              'Google::Apis::YoutubeV3::Thumbnail',
               url: 'https://example.com'
             )
           )
