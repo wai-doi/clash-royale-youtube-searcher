@@ -19,7 +19,16 @@ class StatsRoyaleVideo < ApplicationRecord
   end
 
   def embed_url
-    %Q(<iframe width="#{EMBED_VIDEO_WIDTH}" height="#{EMBED_VIDEO_HEIGHT}" src="https://www.youtube.com/embed/#{youtube_video_id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>)
+    <<~HTML.squish
+      <iframe
+        width="#{EMBED_VIDEO_WIDTH}"
+        height="#{EMBED_VIDEO_HEIGHT}"
+        src="https://www.youtube.com/embed/#{youtube_video_id}"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    HTML
   end
 
   def formated_published_at
