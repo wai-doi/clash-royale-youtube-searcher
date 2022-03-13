@@ -131,7 +131,6 @@ RSpec.describe Batch::VideoImporter, type: :model do
       end
     end
 
-
     it "StatsRoyaleVideoが保存されること" do
       expect { subject }.to change { StatsRoyaleVideo.count }.from(0).to(1)
     end

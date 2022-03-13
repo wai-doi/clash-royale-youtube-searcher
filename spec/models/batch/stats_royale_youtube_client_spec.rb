@@ -27,9 +27,7 @@ RSpec.describe Batch::StatsRoyaleYoutubeClient, type: :model do
 
       allow(youtube_service).to receive(:list_channels).and_return(list_channels_response)
 
-
       list_playlist_items_response = double('list_playlist_items_response')
-
       allow(list_playlist_items_response).to receive(:items).and_return([item])
       allow(list_playlist_items_response).to receive(:next_page_token).and_return(nil)
 
