@@ -7,6 +7,6 @@ class CreateBuildings < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
-    add_index :buildings, [:deck_id, :card_id], unique: true
+    add_index :buildings, %i[deck_id card_id], unique: true
   end
 end

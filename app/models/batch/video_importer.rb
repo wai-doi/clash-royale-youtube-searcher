@@ -11,17 +11,17 @@ module Batch
       persisted_youtube_video_ids = StatsRoyaleVideo.pluck(:youtube_video_id)
       uploaded_video_items.reject! { |video_item| persisted_youtube_video_ids.include?(video_item.video_id) }
 
-      puts "Card の保存を開始"
+      puts 'Card の保存を開始'
       save_new_cards(uploaded_video_items)
-      puts "Card の保存を終了"
+      puts 'Card の保存を終了'
 
-      puts "StatsRoyaleVideo の保存を開始"
+      puts 'StatsRoyaleVideo の保存を開始'
       created_videos = []
       uploaded_video_items.each do |video_item|
         ActiveRecord::Base.transaction do
           # deck作成
-          deck_1 = save_new_deck(video_item.deck_1_cards)
-          deck_2 = save_new_deck(video_item.deck_2_cards)
+          deck1 = save_new_deck(video_item.deck1_cards)
+          deck2 = save_new_deck(video_item.deck2_cards)
 
           # video作成
           created_videos << StatsRoyaleVideo.create!(
@@ -30,7 +30,7 @@ module Batch
             title: video_item.title,
             description: video_item.description,
             thumbnail_url: video_item.thumbnail_url,
-            decks: [deck_1, deck_2]
+            decks: [deck1, deck2]
           )
         end
       end
@@ -40,7 +40,7 @@ module Batch
     private
 
     def save_new_cards(video_items)
-      card_names = video_items.flat_map { |video_item| video_item.deck_1_cards + video_item.deck_2_cards }.uniq
+      card_names = video_items.flat_map { |video_item| video_item.deck1_cards + video_item.deck2_cards }.uniq
       new_card_names = card_names - Card.pluck(:name)
       new_card_names.each { |card_name| Card.create!(name: card_name) }
     end

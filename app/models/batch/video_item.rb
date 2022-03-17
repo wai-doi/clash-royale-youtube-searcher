@@ -2,6 +2,10 @@ module Batch
   class VideoItem
     attr_reader :item
 
+    delegate :published_at, to: :snippet
+    delegate :title, to: :snippet
+    delegate :description, to: :snippet
+
     def initialize(video_item)
       @item = video_item
     end
@@ -10,27 +14,15 @@ module Batch
       snippet.resource_id.video_id
     end
 
-    def published_at
-      snippet.published_at
-    end
-
-    def title
-      snippet.title
-    end
-
-    def description
-      snippet.description
-    end
-
     def thumbnail_url
       snippet.thumbnails.medium.url
     end
 
-    def deck_1_cards
+    def deck1_cards
       deck[0]
     end
 
-    def deck_2_cards
+    def deck2_cards
       deck[1]
     end
 
