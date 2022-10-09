@@ -17,6 +17,7 @@ AllCops:
     - 'tmp/**/*'
     - 'vendor/**/*'
   TargetRubyVersion: 3.0
+  NewCops: enable
 
 Layout/LineLength:
   Max: 120
