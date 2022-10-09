@@ -74,6 +74,7 @@ Style/GlobalStdStream:
 Style/RedundantSelf:
   Enabled: false
 
+# Rails Cops
 
 Rails/CreateTableWithTimestamps:
   Enabled: false
@@ -91,6 +92,7 @@ Rails/Output:
 Rails/RakeEnvironment:
   Enabled: false
 
+# RSpec Cops
 
 RSpec/ContextWording:
   Enabled: false
