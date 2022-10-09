@@ -74,18 +74,6 @@ Style/GlobalStdStream:
 Style/RedundantSelf:
   Enabled: false
 
-# New Cop
-Lint/RaiseException:
-  Enabled: true
-Lint/StructNewOverride:
-  Enabled: true
-Style/HashEachMethods:
-  Enabled: true
-Style/HashTransformKeys:
-  Enabled: true
-Style/HashTransformValues:
-  Enabled: true
-
 
 Rails/CreateTableWithTimestamps:
   Enabled: false
