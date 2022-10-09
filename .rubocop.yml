@@ -21,7 +21,7 @@ AllCops:
 
 Layout/LineLength:
   Max: 120
-  IgnoredPatterns: ['\A\s*#']
+  AllowedPatterns: ['\A\s*#']
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
